@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-12">
+        <div class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entry of roleList; let srno =index">
+                    <td>{{srno+1}}</td>
+                    <td>{{entry.name}}</td>
+                </tr>
+            </tbody>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>roles work </p>
+<div class="row">
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let item of roleList"> {{item.name}} </li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <select>
+            <option *ngFor="let entry of roleList" [value]="entry.id"> {{entry.name}} </option>
+        </select>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class= "row">
+    <div class="col-3">
+        <p> {{firstname}} </p>
+    </div>
+    <div class="col-3">
+        <p> {{version}}</p>
+    </div>
+    <div class="col-3">
+        <p>{{currentdate}} </p>
+    </div>
+    <div class="col-3">
+        {{State}}
+    </div>
+</div>
+<div class= "row">
+    <div class="col-3">
+        <input type="text" [value]="firstname" class="form-control"/>
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstname"/>
+    </div>
+    <div class="col-3">
+        <input [type]="inputType"/>
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="State">
+            <option value="MH">MH</option>
+            <option value="MP">MP</option>
+            <option value="Goa">Goa</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showAlert()">Show alert</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showmessage('welcome back')">Show react</button>
+    </div>
+</div> -->

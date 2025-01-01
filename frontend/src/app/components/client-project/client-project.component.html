@@ -1,0 +1,114 @@
+<app-alert [alertType]="'Error'" [message]="'Welcome to Project'"></app-alert>
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                Client - {{firstname()}}
+                <button class="btn btn-danger" (click)="changename()"> changename</button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Mobile_no</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Client
+            </div>
+            <div class="card-body">
+                <form [formGroup]="projectForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Project Name</label>
+                            <input type="text" formControlName="projectName" class="form-control">
+                            @if(projectForm.controls['projectName'].touched){
+                                <div class="text-danger">
+                                    @if(projectForm.controls['projectName'].errors?.['required']){
+                                        <span>This is required</span>
+                                    }
+                                    @if(projectForm.controls['projectName'].errors?.['minlength']){
+                                        <span>4 char required</span>
+                                    }
+                                </div>  
+                            } 
+                        </div>
+                        <div class="col-6">
+                            <label for="">Start date</label>
+                            <input type="date" formControlName="startDate" class="form-control">   
+                        </div>
+                        <div class="col-6">
+                            <label for="">Excepted End date</label>
+                            <input type="date" formControlName="ExceptedEnddate" class="form-control">   
+                        </div>
+                        <div class="col-6">
+                            <label for="">Name</label>
+                            <input type="text" formControlName="contactPerson" class="form-control">   
+                        </div>
+                        <div class="col-6">
+                            <label for="">Phone</label>
+                            <input type="text" formControlName="contactPersonPhoneno" class="form-control">   
+                        </div>
+                        <div class="col-6">
+                            <label for="">Email</label>
+                            <input type="text" formControlName="contactPersonEmailId" class="form-control">   
+                        </div>
+                        <div class="col-6">
+                            <label for="">Total Employee count</label>
+                            <input type="text" formControlName="totalEmpWorking" class="form-control">   
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Costing</label>
+                            <input type="text" formControlName="projectCost" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Description</label>
+                            <textarea formControlName="projectDetails" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Select Client</label>
+                            <select formControlName="clientId" class="form-control">
+                                <option value="">Select Client</option>
+                                @for (entry of profileList; track $index){
+                                    <option [value]="entry.id"> {{entry.name}}</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Lead By</label>  
+                            <select formControlName="leadByEmpId" class="form-control">
+                                <option value="">Select Employee</option>
+                                @for (entry of EmpList; track $index){
+                                    <option [value]="entry.empId"> {{entry.empName}} - {{entry.empCode}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" text-center>
+                            <button class="btn btn-secondary">Reset</button>
+                        </div>
+                        <div class="col-6" text-center>
+                            <button class="btn btn-success" [disabled]="projectForm.invalid"(click)="onSaveProject()">Save profile</button>
+                        </div>
+                    </div>
+                </form>
+            </div> 
+        </div>
+    </div>
+</div>
